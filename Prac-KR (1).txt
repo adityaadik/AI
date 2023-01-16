@@ -1,0 +1,139 @@
+slip-1 
+father(anant,rama).
+mother(sanjivani,rama).
+siblings(krishna,rama).
+lives(rama,nashik).
+lives(sanjivani,nashik).
+lives(siblings,nashik).
+profession(rama,doctor).
+profession(krishna,engineer).
+likes(rama,(chickensoup;tomatosoup)).
+likes(krishna,not(chickenshoup,tomatosoup)).
+
+----------------
+?- profession(krishna,What).
+What = engineer.
+
+?- mother(Who,rama).
+Who = sanjivani.
+
+?- profession(rama,What).
+What = doctor.
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+slip-2
+
+
+likes(students(cricket;football)).
+likes(seeta,cricket).
+likes(prasad,cricket).
+likes(geeta,cricket).
+hates(sharad,cricket).
+likes(sharad,football).
+fan(X,messi):-likes(X,football).
+fan(X,sachin):-likes(X,cricket).
+
+------------
+?- likes(sharad,What).
+What = football.
+
+?- likes(Who,cricket).
+Who = seeta ;
+Who = prasad ;
+Who = geeta.
+
+?- fan(geeta,sachin).
+true.
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+slip-4
+
+women(geeta).
+women(meenal).
+men(sham).
+likes(X,cooking):-women(X).
+likes(Y,videogame):-men(Y).
+working(geeta).
+consultant(sham).
+
+
+orr
+
+likes(men,video_game).
+likes(women,cooking).
+profession(geeta,working).
+profesion(sham,consultant).
+likes(geeta,cooking).
+likes(sham,video_game).
+likes(meenal,cooking).
+
+
+----------------
+?- likes(geeta,What).
+What = cooking .
+
+?- likes(geeta,cooking).
+true.
+
+?- likes(sham,What).
+What = videogame.
+
+?- likes(meenal,What).
+What = cooking .
+
+?- 
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+slip-9
+
+likes(X,messi):-likes(X,football).
+likes(john,football).
+likes(man,cricket).
+mad(X):-not(likes(X,football)).
+likes(X,reading):-not(mad(X)).
+
+
+----------------
+
+?- mad(john).
+false.
+
+?- mad(Who).
+false.
+
+?- mad(X).
+false.
+
+?- likes(john,messi).
+true.
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+slip-13
+
+likes(marry,food).
+food(wine).
+drink(wine).
+likes(marry,X):-food(X).
+likes(john,X):-likes(marry,X).
+friends(marry,(jim,john)).
+likes(marry,(ice_cream,chocolate,pasta)).
+
+
+
+--------------
+?- likes(john,wine).
+true.
+
+?- likes(marry,What).
+What = food ;
+What = wine ;
+What = (ice_cream, chocolate, pasta).
+
+
+?- friends(marry,Who).
+Who = (jim, john).
+
+?- 
